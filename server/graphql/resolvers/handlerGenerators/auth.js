@@ -64,9 +64,9 @@ export async function login(args) {
   try {
     const user = await User.findOne({ username: args.username });
     if (!user) throw new Error('Username does not exist');
-    const passwordIsValid = await bcrypt.compareSync(args.password, user.password);
+      const passwordIsValid = await bcrypt.compareSync(args.password, user.password);
     if (!passwordIsValid) throw new Error('Incorrect Username or Password');
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY);
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY);
     return { token, password: null, ...user._doc }
   }
   catch (err) {

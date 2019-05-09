@@ -14,4 +14,4 @@ const INITIAL_STATE = {
     }
   }
   
-  export default sessionReducer;
+export default sessionReducer;
